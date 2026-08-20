@@ -1,5 +1,7 @@
 # The Operator Suite
 
-Live: https://agentbridgehq-oss.github.io/
+Public storefront: preview + paywall.
 
-Source repo: https://github.com/agentbridgehq-oss/the-operator-suite
+Live: https://agentbridgehq-oss.github.io/the-operator-suite/
+
+Inside opens after checkout ($47).

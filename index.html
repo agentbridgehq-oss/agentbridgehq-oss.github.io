@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>The Operator Suite — Make Money Online with AI</title>
-<meta name="description" content="21 income streams. Preview the covers. Pay $47 to open Inside."/>
+<meta name="description" content="Click the master cover. Twenty income-stream playbooks open. $47 one-time."/>
 <meta name="author" content="The Operator Suite"/>
 <meta property="og:title" content="The Operator Suite"/>
-<meta property="og:description" content="21 income streams. Preview the covers. Pay $47 to open Inside."/>
+<meta property="og:description" content="Click the master cover. Twenty income-stream playbooks open. $47 one-time."/>
 <meta property="og:image" content="og.jpg"/>
 <link rel="icon" href="favicon.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -28,15 +28,14 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
 .serif,h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 24px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
 .btn-ghost{background:transparent;border:1px solid rgba(164,132,78,.5)}
-.hero-grid{display:grid;gap:40px;padding:40px 0 56px;align-items:center}
-@media(min-width:800px){.hero-grid{grid-template-columns:minmax(0,280px) 1fr}}
-.hero-grid .cover{width:min(280px,100%);margin:0 auto;border:1px solid rgba(164,132,78,.45)}
-.hero-copy{text-align:center}
-@media(min-width:800px){.hero-copy{text-align:left}}
-.hero-copy h1{font-size:clamp(36px,6vw,48px);line-height:1.12;margin:12px 0}
-.price{font-family:"Cormorant Garamond",Georgia,serif;font-size:40px;margin:20px 0 0}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;justify-content:center}
-@media(min-width:800px){.actions{justify-content:flex-start}}
+.cover-home{min-height:calc(100vh - 64px);display:grid;place-items:center;padding:36px 20px 56px}
+.cover-home .stage{text-align:center;width:min(420px,100%)}
+.cover-home button.book{display:block;width:100%;cursor:pointer}
+.cover-home img{width:100%;border:1px solid rgba(164,132,78,.45);box-shadow:0 18px 50px rgba(12,11,10,.18)}
+.cover-home h1{font-size:clamp(32px,6vw,46px);line-height:1.12;margin:22px 0 8px}
+.hint{margin-top:16px;letter-spacing:.16em;font-size:12px;color:var(--gold)}
+.price{font-family:"Cormorant Garamond",Georgia,serif;font-size:36px;margin:16px 0 0}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;justify-content:center}
 .soft{color:var(--soft)}
 .band{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .pad{padding:48px 0}
@@ -59,49 +58,62 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
 .access label{display:block;color:var(--gold);letter-spacing:.16em;font-size:12px;margin-bottom:8px}
 .access .row{display:flex;gap:8px}
 .access input{flex:1;min-height:44px;border:1px solid var(--line);background:var(--paper);padding:0 12px}
-.guide{width:min(760px,calc(100% - 40px));margin:0 auto;padding:28px 0 80px}
-.guide .cover{width:min(320px,100%);margin:0 auto 28px;border:1px solid rgba(164,132,78,.4)}
-.guide h1{font-size:42px;line-height:1.15;margin:8px 0 12px}
 .kicker{font-size:18px;color:var(--soft);font-style:italic}
-.readtime{font-size:13px;color:var(--soft);margin-top:8px}
-.guide h2{font-size:26px;margin:28px 0 10px}
-.guide h3{font-size:20px;margin:22px 0 8px}
-.guide h4{font-size:17px;margin:16px 0 6px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
-.guide p,.guide li{margin:0 0 12px}
-.guide ul,.guide ol{margin:0 0 14px 18px}
-.guide blockquote{border-left:2px solid var(--gold);padding-left:14px;color:var(--soft);font-style:italic;margin:0 0 14px}
-.meta{display:grid;grid-template-columns:1fr;gap:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin:22px 0}
-@media(min-width:640px){.meta{grid-template-columns:1fr 1fr}}
-.meta dt{color:var(--gold);font-size:12px;letter-spacing:.14em}
-.toc{border-bottom:1px solid var(--line);padding:0 0 18px;margin:0 0 8px}
-.toc ol{margin:8px 0 0;padding:0;list-style:none}
-@media(min-width:640px){.toc ol{columns:2;gap:24px}}
-.toc li{break-inside:avoid;margin:0 0 6px;font-size:14px}
-.toc a{color:inherit;text-decoration:none}
-.toc a:hover{color:var(--gold)}
 [hidden]{display:none !important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
 </style>
 </head>
 <body>
 <header class="bar"><div class="wrap">
-  <a class="brand" href="./">THE OPERATOR SUITE</a>
+  <a class="brand" href="./" id="to-cover">THE OPERATOR SUITE</a>
   <a class="btn" href="https://claudecraft.ca/checkout/operatorsuite" style="min-height:36px;padding:8px 14px;font-size:12px;letter-spacing:.08em">GET INSIDE · $47</a>
 </div></header>
 
-<section>
-  <div class="wrap hero-grid">
-    <img class="cover" src="product-cover.jpg" alt="The Operator Suite"/>
-    <div class="hero-copy">
-      <p class="gold">THE OPERATOR SUITE</p>
-      <h1>Make Money Online with AI</h1>
-      <p class="soft" style="max-width:34em;margin:12px auto 0">21 income streams. Click a cover after you buy. Read the full playbook — not a teaser. Preview the shelves and one sample chapter first.</p>
-      <p class="price">$47 <span class="soft" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px">one-time</span></p>
-      <div class="actions">
-        <a class="btn" href="https://claudecraft.ca/checkout/operatorsuite">Get the suite — $47</a>
-        <a class="btn btn-ghost" href="#sample">Read a free sample</a>
-      </div>
-      <p class="soft" style="font-size:13px;margin-top:12px">Inside stays locked until you pay. Instant access after checkout.</p>
+<section id="cover-home" class="cover-home">
+  <div class="stage">
+    <p class="gold">THE OPERATOR SUITE</p>
+    <button class="book" type="button" id="open-book" aria-label="Open the 20 income streams">
+      <img src="product-cover.jpg" alt="The Operator Suite master cover"/>
+    </button>
+    <h1>Make Money Online with AI</h1>
+    <p class="hint">CLICK THE COVER</p>
+    <p class="soft" style="margin-top:10px">The master book opens. Twenty income streams wait on the next page.</p>
+    <p class="price">$47 <span class="soft" style="font-family:'Source Sans 3',system-ui,sans-serif;font-size:16px">one-time</span></p>
+    <div class="actions">
+      <button class="btn" type="button" id="open-book-btn">Open the 20 streams</button>
+      <a class="btn btn-ghost" href="https://claudecraft.ca/checkout/operatorsuite">Buy — $47</a>
+    </div>
+  </div>
+</section>
+
+<section id="streams" hidden>
+  <div class="wrap">
+    <div class="center" style="padding-top:40px">
+      <p class="gold">THE 20 STREAMS</p>
+      <h2 style="font-size:32px;margin-top:8px">Pick a path. The full playbook is Inside.</h2>
+      <p class="soft" style="margin-top:8px">Tap a cover to checkout. After you buy, the same shelf opens the complete guides.</p>
+    </div>
+    <div class="grid">
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/ai-playbook.jpg" alt="Sell an AI playbook"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 01</p><h3>Sell an AI playbook</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/skill-pack.jpg" alt="Ship a Claude or ChatGPT skill pack"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 02</p><h3>Ship a Claude or ChatGPT skill pack</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/prompt-stacks.jpg" alt="Niche prompt stacks"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 03</p><h3>Niche prompt stacks</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/short-form.jpg" alt="AI-assisted short-form"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 04</p><h3>AI-assisted short-form</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/newsletter.jpg" alt="A weekly AI letter"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 05</p><h3>A weekly AI letter</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/templates.jpg" alt="AI templates and SOPs"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 06</p><h3>AI templates and SOPs</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/productized-service.jpg" alt="Productized AI service"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 07</p><h3>Productized AI service</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/affiliate.jpg" alt="Affiliate the tools you actually use"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 08</p><h3>Affiliate the tools you actually use</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/printables.jpg" alt="AI printables and small files"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 09</p><h3>AI printables and small files</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/creator-ads.jpg" alt="Creator ads with AI scripts"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 10</p><h3>Creator ads with AI scripts</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/long-form.jpg" alt="Long-form explainers"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 11</p><h3>Long-form explainers</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/local-ai.jpg" alt="Local businesses + AI"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 12</p><h3>Local businesses + AI</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/design-stock.jpg" alt="AI design and stock"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 13</p><h3>AI design and stock</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/membership.jpg" alt="A small AI membership"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 14</p><h3>A small AI membership</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/operator-group.jpg" alt="A quiet operator group"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 15</p><h3>A quiet operator group</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/freelance-productize.jpg" alt="Freelance, then productize"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 16</p><h3>Freelance, then productize</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/live-drops.jpg" alt="Live drops of AI packs"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 17</p><h3>Live drops of AI packs</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/research-briefs.jpg" alt="Research and brief service"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 18</p><h3>Research and brief service</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/automations.jpg" alt="Automation setups"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 19</p><h3>Automation setups</h3></a>
+    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite"><div class="shot"><img src="covers/custom-projects.jpg" alt="Custom project setups"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH 20</p><h3>Custom project setups</h3></a>
     </div>
   </div>
 </section>
@@ -111,210 +123,11 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
     <p class="gold">WHAT YOU GET</p>
     <h2 style="font-size:32px;margin-top:8px">The product, named</h2>
     <ul class="list">
-      <li>21 long-form playbooks — 40–55 minute reads, not summaries</li>
-      <li>Print-ready PDF for every path, plus the complete book, downloadable from Inside</li>
-      <li>Who it is for, first sale, tools, and what to leave alone</li>
-      <li>Scripts, checklists, worked examples, and a 4-week run inside each path</li>
+      <li>The master cover — click it, the 20 streams open</li>
+      <li>20 long-form playbooks — 40–55 minute reads, not summaries</li>
+      <li>Print-ready PDF for every path, plus the complete book</li>
+      <li>Who it is for, first sale, tools, scripts, and a 4-week run in each path</li>
     </ul>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="center" style="padding-top:40px">
-      <p class="gold">THE 21 STREAMS</p>
-      <h2 style="font-size:32px;margin-top:8px">Preview the covers. Inside is paid.</h2>
-      <p class="soft" style="margin-top:8px">Tap a cover to go to checkout. The full guide opens after you buy.</p>
-    </div>
-    <div class="grid">
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/ai-playbook.jpg" alt="Sell an AI playbook"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 01</p>
-      <h3>Sell an AI playbook</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/skill-pack.jpg" alt="Ship a Claude or ChatGPT skill pack"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 02</p>
-      <h3>Ship a Claude or ChatGPT skill pack</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/prompt-stacks.jpg" alt="Niche prompt stacks"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 03</p>
-      <h3>Niche prompt stacks</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/short-form.jpg" alt="AI-assisted short-form"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 04</p>
-      <h3>AI-assisted short-form</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/newsletter.jpg" alt="A weekly AI letter"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 05</p>
-      <h3>A weekly AI letter</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/templates.jpg" alt="AI templates and SOPs"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 06</p>
-      <h3>AI templates and SOPs</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/productized-service.jpg" alt="Productized AI service"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 07</p>
-      <h3>Productized AI service</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/affiliate.jpg" alt="Affiliate the tools you actually use"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 08</p>
-      <h3>Affiliate the tools you actually use</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/printables.jpg" alt="AI printables and small files"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 09</p>
-      <h3>AI printables and small files</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/creator-ads.jpg" alt="Creator ads with AI scripts"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 10</p>
-      <h3>Creator ads with AI scripts</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/long-form.jpg" alt="Long-form explainers"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 11</p>
-      <h3>Long-form explainers</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/local-ai.jpg" alt="Local businesses + AI"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 12</p>
-      <h3>Local businesses + AI</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/design-stock.jpg" alt="AI design and stock"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 13</p>
-      <h3>AI design and stock</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/membership.jpg" alt="A small AI membership"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 14</p>
-      <h3>A small AI membership</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/operator-group.jpg" alt="A quiet operator group"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 15</p>
-      <h3>A quiet operator group</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/freelance-productize.jpg" alt="Freelance, then productize"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 16</p>
-      <h3>Freelance, then productize</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/live-drops.jpg" alt="Live drops of AI packs"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 17</p>
-      <h3>Live drops of AI packs</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/research-briefs.jpg" alt="Research and brief service"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 18</p>
-      <h3>Research and brief service</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/automations.jpg" alt="Automation setups"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 19</p>
-      <h3>Automation setups</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/custom-projects.jpg" alt="Custom project setups"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 20</p>
-      <h3>Custom project setups</h3>
-    </a>
-
-    <a class="card" href="https://claudecraft.ca/checkout/operatorsuite">
-      <div class="shot">
-        <img src="covers/front-door.jpg" alt="Your front door"/>
-        <span class="lock">LOCKED · $47</span>
-      </div>
-      <p class="n">PATH 21</p>
-      <h3>Your front door</h3>
-    </a></div>
   </div>
 </section>
 
@@ -323,26 +136,14 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
     <p class="gold">FREE SAMPLE · PATH 01</p>
     <h2>Sell an AI playbook</h2>
     <p class="kicker">You already know one job well enough to write it down. A stranger will pay to skip the guessing.</p>
-    <p class="soft" style="font-size:13px;margin:16px 0 28px">This is one chapter of one path. The other twenty, and the rest of this guide, open after you pay.</p>
+    <p class="soft" style="font-size:13px;margin:16px 0 28px">This is one chapter of one path. The other nineteen, and the rest of this guide, open after you pay.</p>
     <h3 style="font-size:26px;margin-bottom:10px">What this actually is</h3>
     <h3>Definition</h3>
 <p>A playbook is a job, written so a tired person can finish it without inventing the steps. The buyer is not shopping for inspiration. They are shopping for a sequence they can run this week. You already know one job well enough to write it down. A stranger will pay to skip the guessing.</p>
 <p>The file is 8 to 15 chapters. Each chapter is a verb plus an object. Each chapter ends with one next action a tired person can do in 20 minutes. The first chapter is what done looks like. The last chapter is what they do next week. The middle is the work. A template or a paste-ready prompt lives in the file. Price the result, not the page count. A tight 18-page job at $29 outsells an 80-page tour of your opinions.</p>
-<h3>What this is not</h3>
-<p>It is not a course, a community, or a 200-page everything-AI book. It is not a skill pack (that is the installable version). It is not a prompt stack (that is paste-as-you-go). It is the sequence, with prompts and templates inside it. It is not a service with a PDF attached. If you include a call, you just built Productized AI service. Keep the file at $19 to $47 and do not include your calendar. You are allowed to use AI to draft. You are not allowed to ship the draft. The money is in the rewrite: your examples, your order, your do-this-next at the end of every chapter.</p>
-<h3>Why this works now</h3>
-<p>Generic how-to-use-ChatGPT posts are free and infinite. The remaining gap is a named job for a named person with a named time box. Search is specific. People type 10 Google posts for a landscaper, not AI content system. Title-match is the distribution. Narrow is the moat. Models still stall. They still write a brochure when the buyer needed a caption. The playbook is the freeze of the sequence a careful person would run every time, if they had two extra hours, which they do not. You do not need a following. You need one finished result you can explain in plain English.</p>
-<h3>Anti-pattern 1: the everything-AI book</h3>
-<p>A 200-page tour of tools and mindset is a hobby. Nobody runs chapter one on Tuesday. Cut it to one job. If you need and to name the result, you have two products. Split them. Sell the one you can finish this week.</p>
-<h3>Anti-pattern 2: shipping the draft</h3>
-<p>A pasted ChatGPT article with a cover is the fastest way to a refund. The buyer can get a draft for free. They cannot get your order, your examples, and a next action at the end of every chapter. If a chapter does not end with a next action, it is an essay. Cut it or finish it.</p>
-<h3>Anti-pattern 3: waiting for a course platform</h3>
-<p>A course platform is how people delay chapter one. You need Google Docs, a Payment Link, and ten messages. After a stranger has bought, you can put the same file on a nicer page. Not before.</p>
-<h3>The deal you keep</h3>
-<p>You keep three promises. One: a stranger can finish chapter one without you in the room. Two: every chapter ends with one next action, and the file has one real example plus one thing they can copy. Three: the checkout title matches the one-sentence offer, the price is on the page, and you have bought the file yourself from a second email. If chapter one does not survive a tired Sunday, the playbook is not a product.</p>
     <div class="center" style="border-top:1px solid var(--line);margin-top:32px;padding-top:24px">
       <p class="soft">The rest of this path is inside the suite.</p>
-      <p style="margin-top:16px"><a class="btn" href="https://claudecraft.ca/checkout/operatorsuite">Unlock all 21 paths — $47</a></p>
+      <p style="margin-top:16px"><a class="btn" href="https://claudecraft.ca/checkout/operatorsuite">Unlock all 20 paths — $47</a></p>
     </div>
   </article>
 </section>
@@ -352,12 +153,12 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
     <p class="gold">QUESTIONS</p>
     <h2 style="font-size:32px;margin:8px 0 24px">Before you buy</h2>
     <dl class="faq">
+      <dt>How does the book open?</dt>
+      <dd>You click the master cover. That is the home. The 20 income streams come next. After you pay, the same click opens the complete guides.</dd>
       <dt>Do I see Inside before I pay?</dt>
-      <dd>You see the covers, the titles, and one free sample chapter. The 21 full guides stay locked until checkout clears.</dd>
+      <dd>You see the master cover, the 20 stream covers, and one free sample chapter. The full guides stay locked until checkout clears.</dd>
       <dt>What happens after I pay?</dt>
-      <dd>You land on Inside immediately. Bookmark that page. Every guide has a print-ready PDF, and the complete book is one download on the shelf.</dd>
-      <dt>Stan Store or this page?</dt>
-      <dd>Same product. This page is the storefront. Checkout is Stripe tonight. When your Stan listing is live, point the Buy button there. After payment, both open the same Inside.</dd>
+      <dd>You land on the same master cover Inside. Click it. The 20 streams open. Every guide has a print-ready PDF.</dd>
       <dt>Is this a subscription?</dt>
       <dd>No. One payment. You keep the files.</dd>
     </dl>
@@ -376,6 +177,24 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
   </div>
 </section>
 <script>
+function openBook(){
+  document.getElementById('cover-home').hidden = true;
+  document.getElementById('streams').hidden = false;
+  window.scrollTo(0,0);
+  history.replaceState({view:'streams'}, '', '#streams');
+}
+function showCover(){
+  document.getElementById('cover-home').hidden = false;
+  document.getElementById('streams').hidden = true;
+  window.scrollTo(0,0);
+  history.replaceState({view:'cover'}, '', location.pathname);
+}
+document.getElementById('open-book').addEventListener('click', openBook);
+document.getElementById('open-book-btn').addEventListener('click', openBook);
+document.getElementById('to-cover').addEventListener('click', function(e){
+  e.preventDefault();
+  showCover();
+});
 document.getElementById('unlock-form').addEventListener('submit', function (e) {
   e.preventDefault();
   var raw = (document.getElementById('code').value || '').trim();
@@ -393,6 +212,7 @@ document.getElementById('unlock-form').addEventListener('submit', function (e) {
         : 'That access code is not valid, or Inside is still locked.';
     }
   }
+  if (location.hash === '#streams') openBook();
 })();
 </script>
 </body>

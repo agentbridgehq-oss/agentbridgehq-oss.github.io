@@ -23,6 +23,7 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clam
 .book img{width:100%;border:1px solid rgba(164,132,78,.45);box-shadow:0 18px 50px rgba(12,11,10,.18)}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 24px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:600}
 .soft{color:var(--soft)}
+.ghost{background:transparent;border:1px solid rgba(164,132,78,.5);margin-top:10px}
 </style>
 </head>
 <body>
@@ -51,6 +52,13 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clam
   <p class="gold" style="margin-top:8px">CLICK THE COVER</p>
   <p class="soft" style="margin-top:10px">The master book opens. Twenty income streams wait on the next page.</p>
   <p style="margin-top:22px"><a class="btn" href="inside.html#streams">Open the 20 streams</a></p>
+  <p><button class="btn ghost" type="button" id="ask-op">Ask the Operator which stream</button></p>
 </section>
+<script src="coach.js"></script>
+<script>
+document.getElementById('ask-op').onclick=function(){
+  if(window.operatorCoachOpen) window.operatorCoachOpen();
+};
+</script>
 </body>
 </html>

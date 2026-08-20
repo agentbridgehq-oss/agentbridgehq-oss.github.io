@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Inside — The Operator Suite</title>
+<link rel="icon" href="favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--ink:#171512;--gold:#a4844e;--paper:#f4efe6;--soft:#7a746b}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;line-height:1.65}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.bar{border-bottom:1px solid #d9cfc0;padding:14px 0}
+.wrap{width:min(1100px,calc(100% - 40px));margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.brand{letter-spacing:.18em;font-size:12px;color:var(--gold);text-decoration:none}
+.gold{color:var(--gold);letter-spacing:.22em;font-size:12px}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(32px,6vw,46px);margin:22px 0 8px}
+.stage{text-align:center;width:min(420px,100%);margin:48px auto;padding:20px}
+.book{display:block;width:100%}
+.book img{width:100%;border:1px solid rgba(164,132,78,.45);box-shadow:0 18px 50px rgba(12,11,10,.18)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 24px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:600}
+.soft{color:var(--soft)}
+</style>
+</head>
+<body>
+<script>
+(function(){
+  var KEY='SUITE-K7N-47';
+  var q=new URLSearchParams(location.search).get('access')||'';
+  if(q.trim().toUpperCase().replace(/\s+/g,'')===KEY){
+    localStorage.setItem('operator-suite-access',KEY);
+  }
+  if(localStorage.getItem('operator-suite-access')!==KEY){
+    location.replace('./?need=purchase');
+  }
+})();
+</script>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="./">THE OPERATOR SUITE</a>
+  <a class="brand" href="inside.html#streams">THE 20 STREAMS</a>
+</div></header>
+<section class="stage">
+  <p class="gold">INSIDE</p>
+  <a class="book" href="inside.html#streams" id="open-book">
+    <img src="product-cover.jpg" alt="The Operator Suite master cover"/>
+  </a>
+  <h1>The Operator Suite</h1>
+  <p class="gold" style="margin-top:8px">CLICK THE COVER</p>
+  <p class="soft" style="margin-top:10px">The master book opens. Twenty income streams wait on the next page.</p>
+  <p style="margin-top:22px"><a class="btn" href="inside.html#streams">Open the 20 streams</a></p>
+</section>
+</body>
+</html>

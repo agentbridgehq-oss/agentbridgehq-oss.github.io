@@ -1,0 +1,37 @@
+name: Visibility Check
+
+on:
+  schedule:
+    # Every 6 hours
+    - cron: "0 */6 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check-private:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Verify repository is private
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          echo "Checking visibility of agentbridgehq-oss/agentbridgehq-oss.github.io..."
+          VISIBILITY=$(gh api repos/agentbridgehq-oss/agentbridgehq-oss.github.io --jq '.visibility')
+          PRIVATE=$(gh api repos/agentbridgehq-oss/agentbridgehq-oss.github.io --jq '.private')
+
+          echo "visibility = $VISIBILITY"
+          echo "private    = $PRIVATE"
+
+          if [ "$PRIVATE" != "true" ] || [ "$VISIBILITY" = "public" ]; then
+            echo ""
+            echo "ERROR: Repository is PUBLIC."
+            echo "The Operator Suite paid content must remain private."
+            echo "Go to Settings → Danger Zone → Change visibility → Private."
+            exit 1
+          fi
+
+          echo "OK — repository is private."

@@ -1,0 +1,83 @@
+name: Sync from Operator Suite
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+  repository_dispatch:
+    types: [sync-operator-suite]
+
+concurrency:
+  group: sync-from-product
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pages site
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Checkout product repo (public)
+        uses: actions/checkout@v4
+        with:
+          repository: agentbridgehq-oss/the-operator-suite
+          path: product
+
+      - name: Mirror product files into site
+        run: |
+          set -euo pipefail
+          mkdir -p site/the-operator-suite
+
+          for f in index.html inside.html product-cover.jpg og.jpg favicon.svg .nojekyll; do
+            if [ -f "product/$f" ]; then
+              cp -f "product/$f" "site/the-operator-suite/$f"
+              cp -f "product/$f" "site/$f"
+            fi
+          done
+
+          for f in article.html path-01.html; do
+            if [ -f "product/$f" ]; then
+              cp -f "product/$f" "site/the-operator-suite/$f"
+            fi
+          done
+
+          if [ -d product/covers ]; then
+            rm -rf site/the-operator-suite/covers site/covers
+            cp -a product/covers site/the-operator-suite/covers
+            cp -a product/covers site/covers
+          fi
+
+          if [ -d product/pdfs ]; then
+            rm -rf site/the-operator-suite/pdfs site/pdfs
+            cp -a product/pdfs site/the-operator-suite/pdfs
+            cp -a product/pdfs site/pdfs
+          fi
+
+          for f in book.html coach.js cover-flow.js; do
+            if [ -f "product/$f" ]; then
+              cp -f "product/$f" "site/the-operator-suite/$f"
+            fi
+          done
+
+          echo "Mirror complete"
+          ls -la site/the-operator-suite/ | head -40
+
+      - name: Commit and push
+        working-directory: site
+        run: |
+          set -euo pipefail
+          git config user.name "operator-suite-sync"
+          git config user.email "agentbridgehq@gmail.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+          git commit -m "Sync Operator Suite from product repo ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git push

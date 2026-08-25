@@ -22,62 +22,91 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: site
+          fetch-depth: 1
 
-      - name: Checkout product repo (public)
+      # Only pull the paths we publish — skip .github, md packs, etc.
+      - name: Checkout product (sparse)
         uses: actions/checkout@v4
         with:
           repository: agentbridgehq-oss/the-operator-suite
           path: product
+          fetch-depth: 1
+          sparse-checkout: |
+            index.html
+            inside.html
+            product-cover.jpg
+            og.jpg
+            favicon.svg
+            .nojekyll
+            article.html
+            path-01.html
+            book.html
+            coach.js
+            cover-flow.js
+            covers
+            pdfs
+          sparse-checkout-cone-mode: false
 
-      - name: Mirror product files into site
+      - name: Rsync product → site
         run: |
           set -euo pipefail
-          mkdir -p site/the-operator-suite
 
-          for f in index.html inside.html product-cover.jpg og.jpg favicon.svg .nojekyll; do
-            if [ -f "product/$f" ]; then
-              cp -f "product/$f" "site/the-operator-suite/$f"
-              cp -f "product/$f" "site/$f"
+          DEST_SUITE="site/the-operator-suite"
+          DEST_ROOT="site"
+          SRC="product"
+
+          mkdir -p "$DEST_SUITE"
+
+          # Root-level assets: suite path + site root mirror
+          ROOT_FILES=(
+            index.html inside.html product-cover.jpg og.jpg favicon.svg .nojekyll
+          )
+          for f in "${ROOT_FILES[@]}"; do
+            if [ -f "$SRC/$f" ]; then
+              rsync -a "$SRC/$f" "$DEST_SUITE/$f"
+              rsync -a "$SRC/$f" "$DEST_ROOT/$f"
             fi
           done
 
-          for f in article.html path-01.html; do
-            if [ -f "product/$f" ]; then
-              cp -f "product/$f" "site/the-operator-suite/$f"
+          # Suite-only pages / scripts
+          SUITE_ONLY=(article.html path-01.html book.html coach.js cover-flow.js)
+          for f in "${SUITE_ONLY[@]}"; do
+            if [ -f "$SRC/$f" ]; then
+              rsync -a "$SRC/$f" "$DEST_SUITE/$f"
             fi
           done
 
-          if [ -d product/covers ]; then
-            rm -rf site/the-operator-suite/covers site/covers
-            cp -a product/covers site/the-operator-suite/covers
-            cp -a product/covers site/covers
+          # Trees: checksum skip when identical; --delete drops removed files
+          if [ -d "$SRC/covers" ]; then
+            rsync -a --delete --checksum "$SRC/covers/" "$DEST_SUITE/covers/"
+            rsync -a --delete --checksum "$SRC/covers/" "$DEST_ROOT/covers/"
           fi
-
-          if [ -d product/pdfs ]; then
-            rm -rf site/the-operator-suite/pdfs site/pdfs
-            cp -a product/pdfs site/the-operator-suite/pdfs
-            cp -a product/pdfs site/pdfs
+          if [ -d "$SRC/pdfs" ]; then
+            rsync -a --delete --checksum "$SRC/pdfs/" "$DEST_SUITE/pdfs/"
+            rsync -a --delete --checksum "$SRC/pdfs/" "$DEST_ROOT/pdfs/"
           fi
-
-          for f in book.html coach.js cover-flow.js; do
-            if [ -f "product/$f" ]; then
-              cp -f "product/$f" "site/the-operator-suite/$f"
-            fi
-          done
 
           echo "Mirror complete"
-          ls -la site/the-operator-suite/ | head -40
+          du -sh "$DEST_SUITE" "$DEST_SUITE/covers" "$DEST_SUITE/pdfs" 2>/dev/null || true
 
-      - name: Commit and push
+      - name: Commit and push (scoped)
         working-directory: site
         run: |
           set -euo pipefail
           git config user.name "operator-suite-sync"
           git config user.email "agentbridgehq@gmail.com"
-          git add -A
+
+          # Only stage published paths — never touch unrelated site files
+          git add -A -- \
+            the-operator-suite \
+            index.html inside.html product-cover.jpg og.jpg favicon.svg .nojekyll \
+            covers pdfs \
+            || true
+
           if git diff --staged --quiet; then
             echo "No changes to publish"
             exit 0
           fi
+
           git commit -m "Sync Operator Suite from product repo ($(date -u +%Y-%m-%dT%H:%MZ))"
           git push

@@ -8,14 +8,17 @@
 <style>
 :root{--ink:#171512;--gold:#a4844e;--paper:#f4efe6;--soft:#7a746b}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--paper);color:var(--ink);font-family:Georgia,serif;line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px}
-.card{max-width:520px;width:100%;text-align:center}
+body{background:var(--paper);color:var(--ink);font-family:Georgia,serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+.card{max-width:560px;width:100%;text-align:center}
 .kicker{letter-spacing:.2em;font-size:12px;color:var(--gold);font-family:system-ui,sans-serif;margin-bottom:12px}
-h1{font-size:36px;font-weight:500;margin-bottom:12px}
+h1{font-size:34px;font-weight:500;margin-bottom:12px}
 p{color:var(--soft);margin-bottom:16px;font-family:system-ui,sans-serif}
-.price{font-size:22px;color:var(--ink);margin:20px 0}
+.price{font-size:22px;color:var(--ink);margin:16px 0}
 .btn{display:block;width:100%;min-height:48px;line-height:48px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:600;font-family:system-ui,sans-serif;margin:10px 0}
 .btn-ghost{background:transparent;border:1px solid rgba(164,132,78,.5)}
+.row{display:flex;gap:8px;align-items:center;margin:8px 0;text-align:left}
+.row input{flex:1;min-height:44px;padding:0 10px;border:1px solid rgba(164,132,78,.45);background:#fff;font-family:ui-monospace,monospace;font-size:12px;color:var(--ink)}
+.copy{min-width:72px;min-height:44px;border:0;background:var(--gold);font-weight:600;font-family:system-ui,sans-serif;cursor:pointer}
 .note{font-size:13px;margin-top:20px}
 </style>
 </head>
@@ -23,12 +26,37 @@ p{color:var(--soft);margin-bottom:16px;font-family:system-ui,sans-serif}
 <div class="card">
   <div class="kicker">THE OPERATOR SUITE</div>
   <h1>This is a paid product.</h1>
-  <p>The 21 playbooks are not free. Buy once. Keep the files. Instant access after checkout.</p>
+  <p>The 21 playbooks are not free. $47 one-time. Copy a link or buy now.</p>
   <div class="price">$47 one-time</div>
   <a class="btn" href="https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09">Buy on Stripe</a>
   <a class="btn btn-ghost" href="https://stan.store/hunter82">Buy on Stan</a>
+  <div class="row"><input id="stripe" readonly value="https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09"/><button class="copy" type="button" data-copy="stripe">Copy</button></div>
+  <div class="row"><input id="stan" readonly value="https://stan.store/hunter82"/><button class="copy" type="button" data-copy="stan">Copy</button></div>
+  <div class="row"><input id="sales" readonly value="https://agentbridgehq-oss.github.io/the-operator-suite/"/><button class="copy" type="button" data-copy="sales">Copy</button></div>
   <a class="btn btn-ghost" href="./index.html">Back to the sales page</a>
-  <p class="note">If you already paid, use the download from your Stripe or Stan receipt. Do not share paid files.</p>
+  <p class="note">Paid buyers: use the file from your Stripe or Stan receipt.</p>
 </div>
+<script>
+async function copyText(id, btn){
+  const v = document.getElementById(id).value;
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(v);
+    } else {
+      const el = document.getElementById(id);
+      el.select();
+      document.execCommand('copy');
+    }
+    btn.textContent = 'Copied';
+    setTimeout(() => btn.textContent = 'Copy', 1200);
+  } catch (e) {
+    btn.textContent = 'Fail';
+    setTimeout(() => btn.textContent = 'Copy', 1200);
+  }
+}
+document.querySelectorAll('.copy').forEach(btn => {
+  btn.addEventListener('click', () => copyText(btn.getAttribute('data-copy'), btn));
+});
+</script>
 </body>
 </html>

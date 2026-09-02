@@ -1,20 +1,20 @@
 name: Visibility Check
 
+# This repo is the PUBLIC GitHub Pages sales site.
+# It MUST stay public. Paid playbooks live in the private repo
+# agentbridgehq-oss/the-operator-suite — do not flip this repo private.
+# Schedule removed: the old check demanded this repo be private and failed every 6 hours.
+
 on:
-  schedule:
-    # Every 6 hours
-    - cron: "0 */6 * * *"
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
-  check-private:
+  check-public:
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - name: Verify repository is private
+      - name: Verify Pages repo is public
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -26,12 +26,11 @@ jobs:
           echo "visibility = $VISIBILITY"
           echo "private    = $PRIVATE"
 
-          if [ "$PRIVATE" != "true" ] || [ "$VISIBILITY" = "public" ]; then
+          if [ "$PRIVATE" = "true" ] || [ "$VISIBILITY" = "private" ]; then
             echo ""
-            echo "ERROR: Repository is PUBLIC."
-            echo "The Operator Suite paid content must remain private."
-            echo "Go to Settings → Danger Zone → Change visibility → Private."
+            echo "ERROR: Sales site repo went private. GitHub Pages URL will die."
+            echo "Settings → Danger Zone → Change visibility → Public."
             exit 1
           fi
 
-          echo "OK — repository is private."
+          echo "OK — sales site is public (required for the bio link)."

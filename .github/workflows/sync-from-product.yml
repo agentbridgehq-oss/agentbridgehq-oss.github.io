@@ -1,11 +1,12 @@
 name: Sync from Operator Suite
 
+# Manual only. The 6-hour schedule failed every run because this public
+# repo's GITHUB_TOKEN cannot clone the private product repo.
+# Live storefront is already on Pages — do not auto-sync during launch.
+# To sync later: add a PAT with repo scope as secret SYNC_TOKEN, then run this by hand.
+
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 */6 * * *"
-  repository_dispatch:
-    types: [sync-operator-suite]
 
 concurrency:
   group: sync-from-product
@@ -28,6 +29,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: agentbridgehq-oss/the-operator-suite
+          token: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
           path: product
           fetch-depth: 1
           sparse-checkout: |

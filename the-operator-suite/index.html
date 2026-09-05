@@ -42,7 +42,7 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
 .list li{border-left:2px solid rgba(164,132,78,.5);padding:0 0 0 16px;margin:0 0 12px;font-size:16px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:24px 0 64px}
 @media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr);gap:22px}}
-.card{cursor:pointer;text-decoration:none;color:inherit}
+.card{cursor:pointer;text-decoration:none;color:inherit;display:block;background:none;border:0;width:100%;transition:transform 150ms ease-out}.card:active{transform:scale(0.96)}@keyframes priceFlash{0%,100%{transform:scale(1)}18%,55%{transform:scale(1.08);box-shadow:0 0 0 3px #a4844e}}.btn.flash{animation:priceFlash 1.15s ease}
 .card .shot{position:relative;overflow:hidden}
 .card img{aspect-ratio:2/3;object-fit:cover;width:100%;border:1px solid rgba(164,132,78,.35);filter:brightness(.72)}
 .card .lock{position:absolute;inset:0;display:grid;place-items:end;background:linear-gradient(transparent,rgba(12,11,10,.8));padding:12px;color:#f4efe6;letter-spacing:.18em;font-size:11px}
@@ -72,7 +72,7 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
 <body>
 <header class="bar"><div class="wrap">
   <a class="brand" href="./">THE OPERATOR SUITE</a>
-  <a class="btn" href="https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09" style="min-height:36px;padding:8px 14px;font-size:12px">GET INSIDE · $47</a>
+  <a id="pay-btn" class="btn" href="https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09" style="min-height:36px;padding:8px 14px;font-size:12px">GET INSIDE · $47</a>
 </div></header>
 <section>
   <div class="wrap hero-grid">
@@ -108,7 +108,7 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
   <div class="center" style="padding-top:40px">
     <p class="gold">THE 21 STREAMS</p>
     <h2 style="font-size:32px;margin-top:8px">Preview the covers. Inside is paid.</h2>
-    <p class="soft" style="margin-top:8px">Tap a cover to go to checkout. The full guide opens after you buy.</p>
+    <p class="soft" style="margin-top:8px">Tap a cover. It stays locked. $47 flashes at the top. Pay once to unlock all 21.</p>
   </div>
   <div class="grid" id="paths"></div>
 </div></section>
@@ -133,7 +133,7 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
     <dt>Do I see Inside before I pay?</dt>
     <dd>You see the covers, the titles, and one free sample chapter. The 21 full guides stay locked until checkout clears.</dd>
     <dt>What happens after I pay?</dt>
-    <dd>You land on Inside immediately. Bookmark that page. Every guide has a print-ready PDF.</dd>
+    <dd>After Stripe, you come back to the 21 unlocked covers. Click a cover to read. Download PDF on each path.</dd>
     <dt>Is this a subscription?</dt>
     <dd>No. One payment. You keep the files.</dd>
   </dl>
@@ -176,21 +176,38 @@ var paths=[
 ];
 var buy='https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09';
 var g=document.getElementById('paths');
+function flashPay(){
+  var btn=document.getElementById('pay-btn');
+  if(!btn) return;
+  btn.classList.remove('flash');
+  void btn.offsetWidth;
+  btn.classList.add('flash');
+  btn.textContent='PAY $47 TO UNLOCK';
+  setTimeout(function(){btn.textContent='GET INSIDE · $47';btn.classList.remove('flash');},1400);
+  btn.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
 paths.forEach(function(p,i){
   var n=('0'+(i+1)).slice(-2);
-  var a=document.createElement('a');
-  a.className='card'; a.href=buy;
+  var a=document.createElement('button');
+  a.type='button';
+  a.className='card';
   a.innerHTML='<div class="shot"><img src="'+p[0]+'" alt="'+p[1]+'"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH '+n+'</p><h3>'+p[1]+'</h3>';
+  a.addEventListener('click', flashPay);
   g.appendChild(a);
 });
 document.getElementById('unlock-form').addEventListener('submit', function (e) {
   e.preventDefault();
   var raw = (document.getElementById('code').value || '').trim();
   if (!raw) return;
-  location.href = 'inside.html?access=' + encodeURIComponent(raw);
+  location.href = 'library.html?access=' + encodeURIComponent(raw);
 });
 (function () {
   var q = new URLSearchParams(location.search);
+  if (q.get('paid')==='1' || q.get('session_id') || q.get('redirect_status')==='succeeded') {
+    try{localStorage.setItem('operator-suite-paid','1')}catch(e){}
+    location.replace('library.html?paid=1');
+    return;
+  }
   if (q.get('need') === 'purchase' || q.get('canceled') === 'true') {
     var err = document.getElementById('unlock-err');
     if (err) {

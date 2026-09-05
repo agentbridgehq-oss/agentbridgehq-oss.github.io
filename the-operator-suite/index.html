@@ -81,11 +81,11 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
       <div class="cover-plate"><b>INSTANT ACCESS</b><span>ONE PAYMENT · KEEP THE FILES · NO SUBSCRIPTION</span></div>
     </div>
     <div class="hero-copy">
-      <p class="gold">DONE COLLECTING PROMPTS</p>
+      <p class="gold">FOUNDING OPERATOR · $47</p>
       <h1>Make Money Online with AI</h1>
       <p class="soft" style="max-width:34em;margin:12px auto 0">21 finished paths. Full playbooks — not teasers. Open Inside the minute checkout clears. You keep the files.</p>
       <ul class="triggers"><li>INSTANT ACCESS</li><li>ONE PAYMENT</li><li>KEEP THE FILES</li><li>NO SUBSCRIPTION</li></ul>
-      <p class="price">$47 <span class="soft" style="font-family:'Source Sans 3',system-ui;font-size:16px">one-time · not $197/mo</span></p>
+      <p class="price">$47 <span class="soft" style="font-family:'Source Sans 3',system-ui;font-size:16px">founding · one-time · keep the files</span></p>
       <div class="actions">
         <a class="btn" href="https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09">Get the suite — $47</a>
         <a class="btn btn-ghost" href="#sample">Read a free chapter first</a>
@@ -213,9 +213,10 @@ document.getElementById('unlock-form').addEventListener('submit', function (e) {
     if (err) {
       err.hidden = false;
       err.textContent = q.get('canceled') === 'true'
-        ? 'Checkout was cancelled. Inside is still locked.'
-        : 'That access code is not valid, or Inside is still locked.';
+        ? 'Checkout was cancelled. The 21 covers are still locked.'
+        : 'Pay $47 to unlock the 21 guides.';
     }
+    flashPay();
   }
 })();
 </script>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<title>Library — The Operator Suite</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--ink:#171512;--gold:#a4844e;--paper:#f4efe6;--soft:#7a746b;--line:#d9cfc0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;line-height:1.65}
+img{max-width:100%;display:block}
+.wrap{width:min(1100px,calc(100% - 40px));margin:0 auto}
+header{border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;background:rgba(244,239,230,.95)}
+header .wrap{display:flex;justify-content:space-between;align-items:center}
+.brand{letter-spacing:.18em;font-size:12px;color:var(--gold);text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 18px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:600}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
+.gold{color:var(--gold);letter-spacing:.18em;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:28px 0 72px}
+@media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{color:inherit;text-decoration:none}
+.card img{aspect-ratio:2/3;object-fit:cover;width:100%;border:1px solid rgba(164,132,78,.35)}
+.shot{position:relative}
+.lock{position:absolute;inset:0;display:grid;place-items:end;background:linear-gradient(transparent,rgba(12,11,10,.75));padding:12px;color:#f4efe6;letter-spacing:.16em;font-size:11px}
+.n{margin-top:8px;color:var(--gold);font-size:12px;letter-spacing:.16em}
+.guide{width:min(760px,calc(100% - 40px));margin:0 auto;padding:32px 0 80px}
+.guide img{width:min(280px,100%);margin:16px 0;border:1px solid rgba(164,132,78,.35)}
+.soft{color:var(--soft)}
+</style></head>
+<body>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search);
+  var access=(q.get('access')||'').trim().toUpperCase().replace(/\s+/g,'');
+  if(q.get('paid')==='1'||q.get('session_id')||q.get('redirect_status')==='succeeded'||access==='SUITE-K7N-47'){
+    try{localStorage.setItem('operator-suite-paid','1')}catch(e){}
+  }
+  var paid=false;
+  try{paid=localStorage.getItem('operator-suite-paid')==='1'}catch(e){}
+  if(!paid){location.replace('./?need=purchase');}
+})();
+</script>
+<header><div class="wrap">
+  <a class="brand" href="./">THE OPERATOR SUITE</a>
+  <a class="brand" href="library.html?paid=1">LIBRARY</a>
+</div></header>
+<main class="wrap" id="home">
+  <p class="gold" style="padding-top:28px">UNLOCKED · YOU KEEP THE FILES</p>
+  <h1>The 21 income streams</h1>
+  <p class="soft">Click a cover to read. Use Download PDF on each path.</p>
+  <div class="grid">
+<a class="card" href="?paid=1&path=01"><div class="shot"><img src="covers/ai-playbook.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 01</p><h3>Sell an AI playbook</h3></a>
+<a class="card" href="?paid=1&path=02"><div class="shot"><img src="covers/skill-pack.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 02</p><h3>Ship a skill pack</h3></a>
+<a class="card" href="?paid=1&path=03"><div class="shot"><img src="covers/prompt-stacks.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 03</p><h3>Niche prompt stacks</h3></a>
+<a class="card" href="?paid=1&path=04"><div class="shot"><img src="covers/short-form.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 04</p><h3>AI-assisted short-form</h3></a>
+<a class="card" href="?paid=1&path=05"><div class="shot"><img src="covers/newsletter.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 05</p><h3>A weekly AI letter</h3></a>
+<a class="card" href="?paid=1&path=06"><div class="shot"><img src="covers/templates.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 06</p><h3>Templates and SOPs</h3></a>
+<a class="card" href="?paid=1&path=07"><div class="shot"><img src="covers/productized-service.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 07</p><h3>Productized AI service</h3></a>
+<a class="card" href="?paid=1&path=08"><div class="shot"><img src="covers/affiliate.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 08</p><h3>Affiliate the tools you use</h3></a>
+<a class="card" href="?paid=1&path=09"><div class="shot"><img src="covers/printables.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 09</p><h3>Printables and small files</h3></a>
+<a class="card" href="?paid=1&path=10"><div class="shot"><img src="covers/creator-ads.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 10</p><h3>Creator ads with AI scripts</h3></a>
+<a class="card" href="?paid=1&path=11"><div class="shot"><img src="covers/long-form.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 11</p><h3>Long-form explainers</h3></a>
+<a class="card" href="?paid=1&path=12"><div class="shot"><img src="covers/local-ai.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 12</p><h3>Local businesses + AI</h3></a>
+<a class="card" href="?paid=1&path=13"><div class="shot"><img src="covers/design-stock.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 13</p><h3>AI design and stock</h3></a>
+<a class="card" href="?paid=1&path=14"><div class="shot"><img src="covers/membership.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 14</p><h3>A small AI membership</h3></a>
+<a class="card" href="?paid=1&path=15"><div class="shot"><img src="covers/operator-group.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 15</p><h3>A quiet operator group</h3></a>
+<a class="card" href="?paid=1&path=16"><div class="shot"><img src="covers/freelance-productize.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 16</p><h3>Freelance, then productize</h3></a>
+<a class="card" href="?paid=1&path=17"><div class="shot"><img src="covers/live-drops.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 17</p><h3>Live drops of AI packs</h3></a>
+<a class="card" href="?paid=1&path=18"><div class="shot"><img src="covers/research-briefs.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 18</p><h3>Research and brief service</h3></a>
+<a class="card" href="?paid=1&path=19"><div class="shot"><img src="covers/automations.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 19</p><h3>Automation setups</h3></a>
+<a class="card" href="?paid=1&path=20"><div class="shot"><img src="covers/custom-projects.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 20</p><h3>Custom project setups</h3></a>
+<a class="card" href="?paid=1&path=21"><div class="shot"><img src="covers/front-door.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 21</p><h3>Your front door</h3></a>
+  </div>
+</main>
+<section class="guide" id="reader" hidden>
+  <p><a class="gold" href="library.html?paid=1">← ALL 21 STREAMS</a></p>
+  <img id="r-img" alt=""/>
+  <p class="gold" id="r-n"></p>
+  <h1 id="r-title"></h1>
+  <p class="soft" id="r-who"></p>
+  <p class="soft" id="r-sale"></p>
+  <p><button class="btn" id="r-pdf" type="button">Download PDF</button></p>
+  <div id="r-body"></div>
+</section>
+<script>
+var GUIDES = {
+"01":["Sell an AI playbook","A tired specialist who needs the steps for one job this week.","A stranger buys the file for $19–$47.","<h2>What this is</h2><p>A playbook is a job written so a tired person can finish it this week. Not a course.</p><h2>First sale</h2><p>Google Doc. 8–15 chapters. Each chapter ends with a 20-minute next action. $27 checkout. Ten personal messages.</p><h2>Leave alone</h2><p>Do not ship the ChatGPT draft. Do not wait for a course platform.</p>"],
+"02":["Ship a skill pack","Operators who want an installable skill.","One paid zip.","<h2>What this is</h2><p>A zip the buyer drops into Claude or ChatGPT. Five prompts that finish one job.</p>"],
+"03":["Niche prompt stacks","People who paste as they go.","A $12–$27 stack.","<h2>What this is</h2><p>8–12 prompts for one niche. Title is the job.</p>"],
+"04":["AI-assisted short-form","Creators who will post if the script is written.","One video that sells a $27 file.","<h2>What this is</h2><p>AI drafts. You shoot. Last line is the buy link.</p>"],
+"05":["A weekly AI letter","Operators who can write one useful page a week.","The letter that sells a file.","<h2>What this is</h2><p>One problem, one sequence, one CTA. Weekly.</p>"],
+"06":["Templates and SOPs","Teams who pay to stop reinventing the doc.","One SOP zip $27–$67.","<h2>What this is</h2><p>The docs you already use, cleaned, sold as a pack.</p>"],
+"07":["Productized AI service","Buyers who want a result, not a file.","One $300–$1,500 packaged job.","<h2>What this is</h2><p>Named result. Named price. Form. Pay first.</p>"],
+"08":["Affiliate the tools you use","Operators who already pay for the tools.","First commission.","<h2>What this is</h2><p>Two honest recs. One page each. Links you would click.</p>"],
+"09":["Printables and small files","People who buy a pretty file once.","A $7–$19 printable.","<h2>What this is</h2><p>One file. One job in the title. Then a pack of the winner.</p>"],
+"10":["Creator ads with AI scripts","Creators who will spend $20 to test.","An ad that sells a $27 file.","<h2>What this is</h2><p>Five scripts. $20 boost. Kill four. Scale one.</p>"],
+"11":["Long-form explainers","People who will read 1,200 words.","The explainer that sells the suite.","<h2>What this is</h2><p>Weekly long-form. Last line is checkout.</p>"],
+"12":["Local businesses + AI","A shop that still posts like 2014.","A $400 month of posts.","<h2>What this is</h2><p>30 posts. One offer. Fixed price. Walk in.</p>"],
+"13":["AI design and stock","People who need images, not a tool course.","A pack of 20.","<h2>What this is</h2><p>One niche. 20 images. $19. Custom after a sale.</p>"],
+"14":["A small AI membership","Buyers who will pay monthly for a drop.","First $12 member.","<h2>What this is</h2><p>One weekly file. No Discord. Files are the membership.</p>"],
+"15":["A quiet operator group","Operators who want peers.","A capped paid group.","<h2>What this is</h2><p>Cap 20. Paid. Ship or leave.</p>"],
+"16":["Freelance, then productize","A specialist still trading hours.","The file made from the last job.","<h2>What this is</h2><p>Do it once. Save the artifacts. Sell the steps.</p>"],
+"17":["Live drops of AI packs","Buyers who move for a deadline.","A 72-hour drop.","<h2>What this is</h2><p>Announce Friday. Deliver Sunday. Real deadline.</p>"],
+"18":["Research and brief service","Founders who will not read 40 tabs.","A $200 three-page brief.","<h2>What this is</h2><p>What it is, what to do Monday, what to ignore.</p>"],
+"19":["Automation setups","Owners who copy between three apps.","One $500 flow.","<h2>What this is</h2><p>One automation. Screenshot the on switch.</p>"],
+"20":["Custom project setups","People with a mess and a named stack.","A $750 scoped setup.","<h2>What this is</h2><p>Install what they named. Date. Half up front.</p>"],
+"21":["Your front door","You. One URL.","The first stranger who buys from the door.","<h2>What this is</h2><p>One page. One offer. All traffic there. Ten sales before product two.</p>"]
+};
+var q=new URLSearchParams(location.search);
+var path=q.get('path');
+if(path && GUIDES[path]){
+  var g=GUIDES[path];
+  document.getElementById('home').hidden=true;
+  var r=document.getElementById('reader'); r.hidden=false;
+  document.getElementById('r-n').textContent='PATH '+path+' · UNLOCKED';
+  document.getElementById('r-title').textContent=g[0];
+  document.getElementById('r-who').textContent='Who it is for: '+g[1];
+  document.getElementById('r-sale').textContent='First sale: '+g[2];
+  document.getElementById('r-body').innerHTML=g[3];
+  var cover={"01":"ai-playbook","02":"skill-pack","03":"prompt-stacks","04":"short-form","05":"newsletter","06":"templates","07":"productized-service","08":"affiliate","09":"printables","10":"creator-ads","11":"long-form","12":"local-ai","13":"design-stock","14":"membership","15":"operator-group","16":"freelance-productize","17":"live-drops","18":"research-briefs","19":"automations","20":"custom-projects","21":"front-door"};
+  document.getElementById('r-img').src='covers/'+cover[path]+'.jpg';
+  document.getElementById('r-pdf').onclick=function(){
+    var w=window.open('','_blank');
+    w.document.write('<html><head><title>'+g[0]+'</title></head><body><h1>'+g[0]+'</h1><p>'+g[1]+'</p><p>'+g[2]+'</p>'+g[3]+'<script>window.onload=function(){window.print()}<\/script></body></html>');
+    w.document.close();
+  };
+}
+</script>
+</body></html>

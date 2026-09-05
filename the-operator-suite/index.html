@@ -153,7 +153,6 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
 <script>
 var paths=[
 ['covers/front-door.jpg','Your front door'],
-['covers/ai-playbook.jpg','Sell an AI playbook'],
 ['covers/skill-pack.jpg','Ship a Claude or ChatGPT skill pack'],
 ['covers/prompt-stacks.jpg','Niche prompt stacks'],
 ['covers/short-form.jpg','AI-assisted short-form'],
@@ -172,7 +171,8 @@ var paths=[
 ['covers/live-drops.jpg','Live drops of AI packs'],
 ['covers/research-briefs.jpg','Research and brief service'],
 ['covers/automations.jpg','Automation setups'],
-['covers/custom-projects.jpg','Custom project setups']
+['covers/custom-projects.jpg','Custom project setups'],
+['covers/ai-playbook.jpg','Sell an AI playbook']
 ];
 var buy='https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09';
 var g=document.getElementById('paths');
@@ -186,14 +186,12 @@ function flashPay(){
   setTimeout(function(){btn.textContent='GET INSIDE · $47';btn.classList.remove('flash');},1400);
   btn.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-var k=0;
-paths.forEach(function(p){
-  var door=p[0].indexOf('front-door')>=0;
-  var n=door?'FRONT DOOR':'PATH '+(++k<10?'0':'')+k;
+paths.forEach(function(p,i){
+  var n=('0'+(i+1)).slice(-2);
   var a=document.createElement('button');
   a.type='button';
   a.className='card';
-  a.innerHTML='<div class="shot"><img src="'+p[0]+'" alt="'+p[1]+'"/><span class="lock">LOCKED · $47</span></div><p class="n">'+n+'</p><h3>'+p[1]+'</h3>';
+  a.innerHTML='<div class="shot"><img src="'+p[0]+'" alt="'+p[1]+'"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH '+n+'</p><h3>'+p[1]+'</h3>';
   a.addEventListener('click', flashPay);
   g.appendChild(a);
 });

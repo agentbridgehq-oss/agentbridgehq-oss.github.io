@@ -53,7 +53,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
     <button class="btn" type="submit">Email my link</button>
   </form>
   <div class="grid">
-<a class="card" href="?path=01"><div class="shot"><img src="covers/front-door.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 01</p><h3>Your front door</h3></a>
+<a class="card" href="?path=01"><div class="shot"><img src="covers/ai-playbook.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 01</p><h3>Sell an AI playbook</h3></a>
 <a class="card" href="?path=02"><div class="shot"><img src="covers/skill-pack.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 02</p><h3>Ship a skill pack</h3></a>
 <a class="card" href="?path=03"><div class="shot"><img src="covers/prompt-stacks.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 03</p><h3>Niche prompt stacks</h3></a>
 <a class="card" href="?path=04"><div class="shot"><img src="covers/short-form.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 04</p><h3>AI-assisted short-form</h3></a>
@@ -73,7 +73,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
 <a class="card" href="?path=18"><div class="shot"><img src="covers/research-briefs.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 18</p><h3>Research and brief service</h3></a>
 <a class="card" href="?path=19"><div class="shot"><img src="covers/automations.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 19</p><h3>Automation setups</h3></a>
 <a class="card" href="?path=20"><div class="shot"><img src="covers/custom-projects.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 20</p><h3>Custom project setups</h3></a>
-<a class="card" href="?path=21"><div class="shot"><img src="covers/ai-playbook.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 21</p><h3>Sell an AI playbook</h3></a>
+<a class="card" href="?path=21"><div class="shot"><img src="covers/front-door.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 21</p><h3>Your front door</h3></a>
   </div>
 </main>
 <section class="guide" id="reader" hidden>
@@ -88,7 +88,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
 </section>
 <script>
 var GUIDES = {
-"01":["Your front door","You. One URL.","The first stranger who buys from the door.","<h2>What this is</h2><p>One page. One offer. All traffic there. Ten sales before product two.</p>"]
+"01":["Sell an AI playbook","A tired specialist who needs the steps for one job this week.","A stranger buys the file for $19–$47.","<h2>What this is</h2><p>A playbook is a job written so a tired person can finish it this week. Not a course.</p><h2>First sale</h2><p>Google Doc. 8–15 chapters. Each chapter ends with a 20-minute next action. $27 checkout. Ten personal messages.</p><h2>Leave alone</h2><p>Do not ship the ChatGPT draft. Do not wait for a course platform.</p>"],
 "02":["Ship a skill pack","Operators who want an installable skill.","One paid zip.","<h2>What this is</h2><p>A zip the buyer drops into Claude or ChatGPT. Five prompts that finish one job.</p>"],
 "03":["Niche prompt stacks","People who paste as they go.","A $12–$27 stack.","<h2>What this is</h2><p>8–12 prompts for one niche. Title is the job.</p>"],
 "04":["AI-assisted short-form","Creators who will post if the script is written.","One video that sells a $27 file.","<h2>What this is</h2><p>AI drafts. You shoot. Last line is the buy link.</p>"],
@@ -108,7 +108,7 @@ var GUIDES = {
 "18":["Research and brief service","Founders who will not read 40 tabs.","A $200 three-page brief.","<h2>What this is</h2><p>What it is, what to do Monday, what to ignore.</p>"],
 "19":["Automation setups","Owners who copy between three apps.","One $500 flow.","<h2>What this is</h2><p>One automation. Screenshot the on switch.</p>"],
 "20":["Custom project setups","People with a mess and a named stack.","A $750 scoped setup.","<h2>What this is</h2><p>Install what they named. Date. Half up front.</p>"],
-"21":["Sell an AI playbook","A tired specialist who needs the steps for one job this week.","A stranger buys the file for $19–$47.","<h2>What this is</h2><p>A playbook is a job written so a tired person can finish it this week. Not a course.</p><h2>First sale</h2><p>Google Doc. 8–15 chapters. Each chapter ends with a 20-minute next action. $27 checkout. Ten personal messages.</p><h2>Leave alone</h2><p>Do not ship the ChatGPT draft. Do not wait for a course platform.</p>"],
+"21":["Your front door","You. One URL.","The first stranger who buys from the door.","<h2>What this is</h2><p>One page. One offer. All traffic there. Ten sales before product two.</p>"]
 };
 var q=new URLSearchParams(location.search);
 var path=q.get('path');
@@ -121,7 +121,7 @@ if(path && GUIDES[path]){
   document.getElementById('r-who').textContent='Who it is for: '+g[1];
   document.getElementById('r-sale').textContent='First sale: '+g[2];
   document.getElementById('r-body').innerHTML=g[3];
-  var cover={"01":"front-door","02":"skill-pack","03":"prompt-stacks","04":"short-form","05":"newsletter","06":"templates","07":"productized-service","08":"affiliate","09":"printables","10":"creator-ads","11":"long-form","12":"local-ai","13":"design-stock","14":"membership","15":"operator-group","16":"freelance-productize","17":"live-drops","18":"research-briefs","19":"automations","20":"custom-projects","21":"ai-playbook"};
+  var cover={"01":"ai-playbook","02":"skill-pack","03":"prompt-stacks","04":"short-form","05":"newsletter","06":"templates","07":"productized-service","08":"affiliate","09":"printables","10":"creator-ads","11":"long-form","12":"local-ai","13":"design-stock","14":"membership","15":"operator-group","16":"freelance-productize","17":"live-drops","18":"research-briefs","19":"automations","20":"custom-projects","21":"front-door"};
   document.getElementById('r-img').src='covers/'+cover[path]+'.jpg';
   document.getElementById('r-pdf').onclick=function(){
     var w=window.open('','_blank');

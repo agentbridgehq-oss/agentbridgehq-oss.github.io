@@ -220,5 +220,26 @@ document.getElementById('unlock-form').addEventListener('submit', function (e) {
   }
 })();
 </script>
-<p class="soft" style="text-align:center;padding:24px 12px 48px;font-size:13px"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p></body>
+<div id="legal-optin" class="narrow pad" style="padding-top:8px;padding-bottom:32px;text-align:left">
+  <label style="display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(196,161,90,.45);padding:14px 16px;color:#c9c0b4;font-size:14px;line-height:1.45">
+    <input id="agree" type="checkbox" style="margin-top:3px;accent-color:#c4a15a;width:16px;height:16px"/>
+    <span>I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>. This is a $47 one-time digital download. I keep the files.</span>
+  </label>
+  <p id="agree-err" hidden style="color:#c4a15a;margin-top:10px;font-size:13px">Check the box to continue to checkout.</p>
+</div>
+<p class="soft" style="text-align:center;padding:8px 12px 48px;font-size:13px"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p><script>
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a');
+  if(!a) return;
+  var href=a.getAttribute('href')||'';
+  if(href.indexOf('buy.stripe.com')===-1 && href.indexOf('stan.store')===-1) return;
+  var box=document.getElementById('agree');
+  if(box && box.checked) return;
+  e.preventDefault();
+  var err=document.getElementById('agree-err');
+  if(err) err.hidden=false;
+  var wrap=document.getElementById('legal-optin');
+  if(wrap) wrap.scrollIntoView({behavior:'smooth',block:'center'});
+},true);
+</script></body>
 </html>

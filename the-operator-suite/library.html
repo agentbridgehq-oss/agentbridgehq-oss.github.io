@@ -53,7 +53,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
     <button class="btn" type="submit">Email my link</button>
   </form>
   <div class="grid">
-<a class="card" href="?path=01"><div class="shot"><img src="covers/front-door.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 01</p><h3>Your front door</h3></a>
+<a class="card" href="?path=01"><div class="shot"><img src="covers/templates.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 01</p><h3>Templates and SOPs</h3></a>
 <a class="card" href="?path=02"><div class="shot"><img src="covers/skill-pack.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 02</p><h3>Ship a skill pack</h3></a>
 <a class="card" href="?path=03"><div class="shot"><img src="covers/prompt-stacks.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 03</p><h3>Niche prompt stacks</h3></a>
 <a class="card" href="?path=04"><div class="shot"><img src="covers/short-form.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 04</p><h3>AI-assisted short-form</h3></a>
@@ -73,7 +73,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
 <a class="card" href="?path=18"><div class="shot"><img src="covers/research-briefs.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 18</p><h3>Research and brief service</h3></a>
 <a class="card" href="?path=19"><div class="shot"><img src="covers/automations.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 19</p><h3>Automation setups</h3></a>
 <a class="card" href="?path=20"><div class="shot"><img src="covers/custom-projects.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 20</p><h3>Custom project setups</h3></a>
-<a class="card" href="?path=21"><div class="shot"><img src="covers/ai-playbook.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 21</p><h3>Sell an AI playbook</h3></a>
+<a class="card" href="?path=21"><div class="shot"><img src="covers/front-door.jpg" alt=""/><span class="lock">OPEN · PDF</span></div><p class="n">PATH 21</p><h3>Your front door</h3></a>
   </div>
 </main>
 <section class="guide" id="reader" hidden>
@@ -121,7 +121,7 @@ if(path && GUIDES[path]){
   document.getElementById('r-who').textContent='Who it is for: '+g[1];
   document.getElementById('r-sale').textContent='First sale: '+g[2];
   document.getElementById('r-body').innerHTML=g[3];
-  var cover={"01":"front-door","02":"skill-pack","03":"prompt-stacks","04":"short-form","05":"newsletter","06":"templates-os","07":"productized-service","08":"affiliate","09":"printables","10":"creator-ads","11":"long-form","12":"local-ai","13":"design-stock","14":"membership","15":"operator-group","16":"freelance-productize","17":"live-drops","18":"research-briefs","19":"automations","20":"custom-projects","21":"ai-playbook"};
+  var cover={"01":"templates","02":"skill-pack","03":"prompt-stacks","04":"short-form","05":"newsletter","06":"templates-os","07":"productized-service","08":"affiliate","09":"printables","10":"creator-ads","11":"long-form","12":"local-ai","13":"design-stock","14":"membership","15":"operator-group","16":"freelance-productize","17":"live-drops","18":"research-briefs","19":"automations","20":"custom-projects","21":"front-door"};
   document.getElementById('r-img').src='covers/'+cover[path]+'.jpg';
   document.getElementById('r-pdf').onclick=function(){
     var w=window.open('','_blank');

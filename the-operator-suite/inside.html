@@ -1,45 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!doctype html>
+<html lang="en"><head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Inside — The Operator Suite</title>
 <meta name="robots" content="noindex"/>
-<style>
-:root{--ink:#171512;--gold:#a4844e;--paper:#f4efe6;--soft:#7a746b}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--paper);color:var(--ink);font-family:Georgia,serif;line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px}
-.card{max-width:520px;width:100%;text-align:center}
-.kicker{letter-spacing:.2em;font-size:12px;color:var(--gold);font-family:system-ui,sans-serif;margin-bottom:12px}
-h1{font-size:36px;font-weight:500;margin-bottom:12px}
-p{color:var(--soft);margin-bottom:16px;font-family:system-ui,sans-serif}
-.price{font-size:22px;color:var(--ink);margin:20px 0}
-.btn{display:block;width:100%;min-height:48px;line-height:48px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:600;font-family:system-ui,sans-serif;margin:10px 0}
-.btn-ghost{background:transparent;border:1px solid rgba(164,132,78,.5)}
-.note{font-size:13px;margin-top:20px}
-</style>
-<script>
-(function(){
-  var q=new URLSearchParams(location.search);
-  var access=(q.get('access')||'').trim().toUpperCase().replace(/\s+/g,'');
-  if(q.get('paid')==='1'||q.get('session_id')||q.get('redirect_status')==='succeeded'||access==='SUITE-K7N-47'){
-    var next='library.html';
-    if(access) next+='?access='+encodeURIComponent(access);
-    else next+='?paid=1';
-    location.replace(next);
-  }
-})();
-</script>
+<meta http-equiv="refresh" content="0;url=https://the-operator-suite.netlify.app/"/>
+<title>The Operator Suite</title>
+<script>location.replace('https://the-operator-suite.netlify.app/')</script>
 </head>
 <body>
-<div class="card">
-  <div class="kicker">THE OPERATOR SUITE</div>
-  <h1>This is a paid product.</h1>
-  <p>The 21 playbooks stay locked until checkout clears. $47 once. Keep the files.</p>
-  <div class="price">$47 one-time</div>
-  <a class="btn" href="https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09">Pay $47 to unlock</a>
-  <a class="btn btn-ghost" href="./">Back to the covers</a>
-  <p class="note">After you pay, Stripe sends you to the library. We also email the unlock link to the address on the receipt.</p>
-</div>
-</body>
-</html>
+<p><a href="https://the-operator-suite.netlify.app/">The Operator Suite — $47</a></p>
+</body></html>

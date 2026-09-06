@@ -88,9 +88,9 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
       <p class="price">$47 <span class="soft" style="font-family:'Source Sans 3',system-ui;font-size:16px">founding · one-time · keep the files</span></p>
       <div class="actions">
         <a class="btn" href="https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09">Get the suite — $47</a>
-        <a class="btn btn-ghost" href="#sample">Read a free chapter first</a>
+        <a class="btn btn-ghost" href="#faq">How it works</a>
       </div>
-      <p class="soft" style="font-size:13px;margin-top:12px">Preview the covers and one sample before you pay. Then buy once.</p>
+      <p class="soft" style="font-size:13px;margin-top:12px">Look at the covers. Click any cover to pay $47. After Stripe, all 21 unlock.</p>
     </div>
   </div>
 </section>
@@ -112,26 +112,12 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
   </div>
   <div class="grid" id="paths"></div>
 </div></section>
-<section id="sample" class="sample band"><article class="narrow pad">
-  <p class="gold">FREE SAMPLE · PATH 01</p>
-  <h2>Sell an AI playbook</h2>
-  <p class="kicker">You already know one job well enough to write it down. A stranger will pay to skip the guessing.</p>
-  <p class="soft" style="font-size:13px;margin:16px 0 28px">This is one chapter of one path. The other twenty open after you pay.</p>
-  <h3>Definition</h3>
-  <p>A playbook is a job, written so a tired person can finish it without inventing the steps. The buyer is shopping for a sequence they can run this week.</p>
-  <h3>What this is not</h3>
-  <p>Not a course, community, or 200-page everything-AI book. Keep the file at $19 to $47. You may draft with AI. You may not ship the draft.</p>
-  <div class="center" style="border-top:1px solid var(--line);margin-top:32px;padding-top:24px">
-    <p class="soft">The rest of this path is inside the suite.</p>
-    <p style="margin-top:16px"><a class="btn" href="https://buy.stripe.com/bJe3cxfb79vTd48cWe7ok09">Unlock all 21 paths — $47</a></p>
-  </div>
-</article></section>
-<section><div class="narrow pad">
+<section id="faq"><div class="narrow pad">
   <p class="gold">QUESTIONS</p>
   <h2 style="font-size:32px;margin:8px 0 24px">Before you buy</h2>
   <dl class="faq">
     <dt>Do I see Inside before I pay?</dt>
-    <dd>You see the covers, the titles, and one free sample chapter. The 21 full guides stay locked until checkout clears.</dd>
+    <dd>You see the covers and titles only. Click a cover to pay $47 on Stripe. After checkout you come back with all 21 unlocked.</dd>
     <dt>What happens after I pay?</dt>
     <dd>After Stripe, you come back to the 21 unlocked covers. Click a cover to read. Download PDF on each path.</dd>
     <dt>Is this a subscription?</dt>
@@ -188,11 +174,10 @@ function flashPay(){
 }
 paths.forEach(function(p,i){
   var n=('0'+(i+1)).slice(-2);
-  var a=document.createElement('button');
-  a.type='button';
+  var a=document.createElement('a');
   a.className='card';
-  a.innerHTML='<div class="shot"><img src="'+p[0]+'" alt="'+p[1]+'"/><span class="lock">LOCKED · $47</span></div><p class="n">PATH '+n+'</p><h3>'+p[1]+'</h3>';
-  a.addEventListener('click', flashPay);
+  a.href=buy;
+  a.innerHTML='<div class="shot"><img src="'+p[0]+'" alt="'+p[1]+'"/><span class="lock">$47 · UNLOCK</span></div><p class="n">PATH '+n+'</p><h3>'+p[1]+'</h3>';
   g.appendChild(a);
 });
 document.getElementById('unlock-form').addEventListener('submit', function (e) {

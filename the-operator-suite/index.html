@@ -18,7 +18,7 @@ html,body{background:var(--paper);color:var(--ink);font-family:"Source Sans 3",s
 img{max-width:100%;display:block}
 button,input{font:inherit;color:inherit}
 button{background:none;border:0;text-align:left;cursor:pointer}
-.wrap{width:min(1480px,calc(100% - 32px));margin:0 auto}
+.wrap{width:calc(100% - 24px);max-width:none;margin:0 auto}
 .narrow{width:min(920px,calc(100% - 32px));margin:0 auto}
 header.bar{border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;background:rgba(244,239,230,.95);z-index:5;backdrop-filter:blur(8px)}
 header.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
@@ -27,8 +27,8 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
 .serif,h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 24px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
 .btn-ghost{background:transparent;border:1px solid rgba(164,132,78,.5)}
-.hero-grid{display:grid;gap:36px;padding:20px 0 40px;align-items:center;min-height:calc(100svh - 58px)}
-@media(min-width:800px){.hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:48px}}
+.hero-grid{display:grid;gap:28px;padding:12px 0 28px;align-items:center;min-height:calc(100svh - 58px)}
+@media(min-width:800px){.hero-grid{grid-template-columns:minmax(0,1.75fr) minmax(240px,.55fr);gap:36px}}
 .hero-copy{text-align:center}
 @media(min-width:800px){.hero-copy{text-align:left}}
 .hero-copy h1{font-size:clamp(42px,6.4vw,76px);line-height:1.05;margin:12px 0}
@@ -60,7 +60,7 @@ header.bar .wrap{display:flex;justify-content:space-between;align-items:center;g
 .kicker{font-size:18px;color:var(--soft);font-style:italic}
 [hidden]{display:none !important}
 .cover-wrap{position:relative;width:100%;max-width:none;margin:0}
-.cover-wrap img.cover{width:100%;height:auto;max-height:86svh;object-fit:contain;margin:0;display:block;border:1px solid rgba(164,132,78,.45)}
+.cover-wrap img.cover{width:100%;height:auto;max-height:94svh;object-fit:contain;margin:0;display:block;border:1px solid rgba(164,132,78,.45)}
 .cover-plate{position:absolute;left:7%;right:7%;bottom:5.5%;padding:11px 8px 10px;background:rgba(8,6,5,.92);text-align:center}
 .cover-plate b{display:block;color:#d2b476;letter-spacing:.28em;font-size:10px;font-weight:600;font-family:"Cormorant Garamond",Georgia,serif}
 .cover-plate span{display:block;color:#c4ae7a;letter-spacing:.12em;font-size:8px;margin-top:5px}

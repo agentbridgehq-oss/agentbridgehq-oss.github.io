@@ -1,2 +1,2 @@
-/* paid product lives on Netlify after Stripe — this file is intentionally empty */
-location.replace('https://the-operator-suite.netlify.app/');
+/* Redirect-only GitHub Pages mirror. Paid product lives on Netlify. */
+location.replace('https://the-operator-suite.netlify.app/'+(location.search||'')+(location.hash||''));

@@ -1,100 +1,25 @@
 name: Sync from Operator Suite
 
-# Manual only. The 6-hour schedule failed every run because this public
-# repo's GITHUB_TOKEN cannot clone the private product repo.
-# Live storefront is already on Pages — do not auto-sync during launch.
-# To sync later: add a PAT with repo scope as secret SYNC_TOKEN, then run this by hand.
-
+# Manual only. This public repo is a redirect-only mirror of the live
+# Netlify storefront. Never copy playbooks, PDFs, or checkout copy here.
 on:
   workflow_dispatch:
 
-concurrency:
-  group: sync-from-product
-  cancel-in-progress: true
-
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  sync:
+  keep-redirects:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Pages site
         uses: actions/checkout@v4
-        with:
-          path: site
-          fetch-depth: 1
 
-      - name: Checkout product (sparse, no paid files)
-        uses: actions/checkout@v4
-        with:
-          repository: agentbridgehq-oss/the-operator-suite
-          token: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
-          path: product
-          fetch-depth: 1
-          sparse-checkout: |
-            index.html
-            product-cover.jpg
-            og.jpg
-            favicon.svg
-            .nojekyll
-            article.html
-            path-01.html
-            book.html
-            coach.js
-            cover-flow.js
-            covers
-          sparse-checkout-cone-mode: false
-
-      - name: Rsync public storefront only
+      - name: Refuse leftover $47 checkout or unlock scripts
         run: |
           set -euo pipefail
-          DEST_SUITE="site/the-operator-suite"
-          DEST_ROOT="site"
-          SRC="product"
-          mkdir -p "$DEST_SUITE"
-          ROOT_FILES=(index.html product-cover.jpg og.jpg favicon.svg .nojekyll)
-          for f in "${ROOT_FILES[@]}"; do
-            if [ -f "$SRC/$f" ]; then
-              rsync -a "$SRC/$f" "$DEST_SUITE/$f"
-              rsync -a "$SRC/$f" "$DEST_ROOT/$f"
-            fi
-          done
-          SUITE_ONLY=(article.html path-01.html book.html coach.js cover-flow.js)
-          for f in "${SUITE_ONLY[@]}"; do
-            if [ -f "$SRC/$f" ]; then
-              rsync -a "$SRC/$f" "$DEST_SUITE/$f"
-            fi
-          done
-          if [ -d "$SRC/covers" ]; then
-            rsync -a --delete --checksum "$SRC/covers/" "$DEST_SUITE/covers/"
-            rsync -a --delete --checksum "$SRC/covers/" "$DEST_ROOT/covers/"
+          if grep -RIn --exclude-dir=.git --exclude-dir=.github -E '\$47|bJe3cxfb|3cI4gB4wtcI5|operator-suite-access' .; then
+            echo 'FAIL: leftover $47 checkout or unlock script still in public Pages'
+            exit 1
           fi
-          echo "Public storefront synced. Paid inside.html and pdfs were NOT copied."
-
-      - name: Commit and push (scoped)
-        working-directory: site
-        run: |
-          set -euo pipefail
-          git config user.name "operator-suite-sync"
-          git config user.email "agentbridgehq@gmail.com"
-          git add -A -- \
-            the-operator-suite/index.html \
-            the-operator-suite/product-cover.jpg \
-            the-operator-suite/og.jpg \
-            the-operator-suite/favicon.svg \
-            the-operator-suite/.nojekyll \
-            the-operator-suite/article.html \
-            the-operator-suite/path-01.html \
-            the-operator-suite/book.html \
-            the-operator-suite/coach.js \
-            the-operator-suite/cover-flow.js \
-            the-operator-suite/covers \
-            index.html product-cover.jpg og.jpg favicon.svg .nojekyll covers \
-            || true
-          if git diff --staged --quiet; then
-            echo "No changes to publish"
-            exit 0
-          fi
-          git commit -m "Sync public storefront only ($(date -u +%Y-%m-%dT%H:%MZ))"
-          git push
+          echo "Public Pages is a redirect-only mirror. Paid files were not copied."

@@ -1,0 +1,22 @@
+name: No leftover $47 checkout
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail if retired checkout or unlock script is public
+        run: |
+          set -euo pipefail
+          if grep -RIn --exclude-dir=.git --exclude-dir=.github -E '\$47|bJe3cxfb|3cI4gB4wtcI5|operator-suite-access' .; then
+            echo 'FAIL: leftover $47 checkout or unlock script still in public Pages'
+            exit 1
+          fi
+          echo "Public Pages has no leftover $47 checkout"

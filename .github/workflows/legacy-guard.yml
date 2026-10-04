@@ -1,0 +1,34 @@
+name: Public Pages redirect guard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Fail if retired checkout or unlock script is public
+        run: |
+          set -euo pipefail
+          found=0
+          search() {
+            if grep -RFn --exclude-dir=.git --exclude-dir=.github --include='*.html' --include='*.js' --include='*.md' --include='*.txt' --include='*.xml' --include='*.yml' "$1" .; then
+              found=1
+            fi
+          }
+          search '$47'
+          search 'bJe3cxfb'
+          search '6oU8wR5AxfUh'
+          search 'stan.store'
+          search '3cI4gB4wtcI5'
+          search 'operator-suite-access'
+          if [ "$found" = "1" ]; then
+            echo 'FAIL: leftover retired checkout still in public Pages'
+            exit 1
+          fi
+          echo 'Public Pages is a redirect-only mirror'
